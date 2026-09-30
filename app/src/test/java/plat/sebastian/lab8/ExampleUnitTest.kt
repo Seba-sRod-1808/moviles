@@ -1,4 +1,4 @@
-package plat.sebastian.lab7
+package plat.sebastian.lab8
 
 import org.junit.Test
 

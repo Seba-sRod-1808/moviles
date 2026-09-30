@@ -1,4 +1,4 @@
-package plat.sebastian.lab7.ui.theme
+package plat.sebastian.lab8.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

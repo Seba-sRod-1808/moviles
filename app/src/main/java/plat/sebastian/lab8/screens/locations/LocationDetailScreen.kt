@@ -1,4 +1,4 @@
-package plat.sebastian.lab7.screens
+package plat.sebastian.lab8.screens.locations
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -6,10 +6,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -17,30 +14,27 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
-import plat.sebastian.lab7.CharacterDb
+import plat.sebastian.lab8.LocationDb
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CharacterDetailScreen(
-    characterId: Int,
+fun LocationDetailScreen(
+    locationId: Int,
     onBackClick: () -> Unit
 ) {
 
-    val character =
-        CharacterDb().getCharacterById(characterId)
+    val location =
+        LocationDb().getLocationById(locationId)
 
     Scaffold(
         topBar = {
 
             TopAppBar(
                 title = {
-                    Text("Characters details")
+                    Text("Location details")
                 },
 
                 navigationIcon = {
@@ -48,7 +42,6 @@ fun CharacterDetailScreen(
                     IconButton(
                         onClick = onBackClick
                     ) {
-
                         Text(
                             text = "←",
                             style = MaterialTheme.typography.headlineMedium
@@ -59,8 +52,10 @@ fun CharacterDetailScreen(
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor =
                         MaterialTheme.colorScheme.primaryContainer,
+
                     titleContentColor =
                         MaterialTheme.colorScheme.onPrimaryContainer,
+
                     navigationIconContentColor =
                         MaterialTheme.colorScheme.onPrimaryContainer
                 )
@@ -72,48 +67,40 @@ fun CharacterDetailScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .padding(24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+                .padding(32.dp)
         ) {
 
-            AsyncImage(
-                model = character.image,
-                contentDescription = character.name,
-                modifier = Modifier
-                    .size(220.dp)
-                    .clip(CircleShape)
-            )
-
             Text(
-                text = character.name,
-                modifier = Modifier.padding(
-                    top = 20.dp,
-                    bottom = 30.dp
-                ),
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold
+                text = location.name,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(
+                        top = 30.dp,
+                        bottom = 40.dp
+                    ),
+                style = MaterialTheme.typography.headlineLarge
             )
 
-            CharacterInfoRow(
-                label = "Species:",
-                value = character.species
+            LocationInfoRow(
+                label = "ID:",
+                value = location.id.toString()
             )
 
-            CharacterInfoRow(
-                label = "Status:",
-                value = character.status
+            LocationInfoRow(
+                label = "Type:",
+                value = location.type
             )
 
-            CharacterInfoRow(
-                label = "Gender:",
-                value = character.gender
+            LocationInfoRow(
+                label = "Dimension:",
+                value = location.dimension
             )
         }
     }
 }
 
 @Composable
-fun CharacterInfoRow(
+fun LocationInfoRow(
     label: String,
     value: String
 ) {
@@ -121,18 +108,19 @@ fun CharacterInfoRow(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp),
+            .padding(vertical = 10.dp),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
 
         Text(
             text = label,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold
         )
 
         Text(
             text = value,
-            color = MaterialTheme.colorScheme.onSurface
+            style = MaterialTheme.typography.titleMedium
         )
     }
 }

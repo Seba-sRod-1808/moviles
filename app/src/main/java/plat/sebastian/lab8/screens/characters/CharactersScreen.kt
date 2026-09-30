@@ -1,4 +1,4 @@
-package plat.sebastian.lab7.screens
+package plat.sebastian.lab8.screens.characters
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -24,8 +24,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import plat.sebastian.lab7.Character
-import plat.sebastian.lab7.CharacterDb
+import plat.sebastian.lab8.Character
+import plat.sebastian.lab8.CharacterDb
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
