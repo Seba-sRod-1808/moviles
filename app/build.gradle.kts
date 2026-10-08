@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    namespace = "plat.sebastian.lab8"
+    namespace = "plat.sebastian.lab9"
     compileSdk {
         version = release(37)
     }
 
     defaultConfig {
-        applicationId = "plat.sebastian.lab8"
+        applicationId = "plat.sebastian.lab9"
         minSdk = 26
         targetSdk = 37
         versionCode = 1
@@ -57,4 +57,6 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
     implementation(libs.androidx.compose.material.icons.extended)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose)
 }

@@ -7,6 +7,7 @@ CC3087 — Programación de Plataformas Móviles.
 | Rama | Contenido |
 |------|-----------|
 | `laboratorio7` | Laboratorio 7 (Rick & Morty: login, lista y detalle) |
-| `lab8` | Laboratorio 8 (en desarrollo, basado en lab 7) |
+| `lab8` | Laboratorio 8 |
+| `lab9` | Laboratorio 9 (en desarrollo, basado en lab 8) |
 
 Abrir en Android Studio la carpeta raíz del repo (`moviles/`), no una carpeta padre.
