@@ -21,19 +21,16 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun ProfileScreen(
+    userName: String,
     onLogout: () -> Unit
 ) {
-
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(32.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
-        Spacer(
-            modifier = Modifier.weight(1f)
-        )
+        Spacer(modifier = Modifier.weight(1f))
 
         Icon(
             imageVector = Icons.Default.AccountCircle,
@@ -42,13 +39,11 @@ fun ProfileScreen(
             tint = MaterialTheme.colorScheme.primary
         )
 
-        Spacer(
-            modifier = Modifier.weight(1f)
-        )
+        Spacer(modifier = Modifier.weight(1f))
 
         ProfileInfoRow(
             label = "Nombre:",
-            value = "Sebastian Rodas"
+            value = userName
         )
 
         ProfileInfoRow(
@@ -56,19 +51,13 @@ fun ProfileScreen(
             value = "25038"
         )
 
-        Spacer(
-            modifier = Modifier.weight(1f)
-        )
+        Spacer(modifier = Modifier.weight(1f))
 
-        OutlinedButton(
-            onClick = onLogout
-        ) {
+        OutlinedButton(onClick = onLogout) {
             Text("Cerrar sesión")
         }
 
-        Spacer(
-            modifier = Modifier.weight(1f)
-        )
+        Spacer(modifier = Modifier.weight(1f))
     }
 }
 
@@ -77,14 +66,12 @@ fun ProfileInfoRow(
     label: String,
     value: String
 ) {
-
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 10.dp),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-
         Text(
             text = label,
             style = MaterialTheme.typography.titleLarge

@@ -54,6 +54,7 @@ object ProfileDestination
 
 @Composable
 fun MainScreen(
+    userName: String,
     onLogout: () -> Unit
 ) {
     val navController = rememberNavController()
@@ -193,8 +194,8 @@ fun MainScreen(
             }
 
             composable<ProfileDestination> {
-
                 ProfileScreen(
+                    userName = userName,
                     onLogout = onLogout
                 )
             }
